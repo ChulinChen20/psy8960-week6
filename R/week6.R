@@ -7,7 +7,7 @@ library(tidyverse)
 
 # Data Import
 citations <- stri_read_lines("../data/citations.txt",encoding="WINDOWS-1252")
-citations_txt <-citations[citations!=""]
+citations_txt <- citations[!stri_isempty(citations)]
 length(citations)-length(citations_txt)
 mean(str_length(citations_txt))
 
